@@ -176,7 +176,10 @@ void bleCoreModule(byte data);
 * V2.2.5更新说明 2019/08/02 优化BleService后台运行 优化部分功能
 
 
+### 6、效果图
 
+![主页面](app/pic/2.png)
+![心率采集页面](app/pic/3.png)
 
 
 
