@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#99005555"
+    tools:context="cc.bodyplus.bodyplus_sdk.CoreWaveActivity">
+    <TextView
+        android:textColor="#00500f"
+        android:textSize="26sp"
+        android:text="展示EcgWave的页面"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_marginStart="20dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:onClick="startHRV"
+            android:textColor="#0000ff"
+            android:text="开始HRV波形" />
+
+        <Button
+            android:layout_marginStart="50dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:onClick="finishHRV"
+            android:textColor="#0000ff"
+            android:text="关闭HRV波形" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_null"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+    <RelativeLayout
+        android:id="@+id/rl_ecg_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        >
+
+        <cc.bodyplus.sdk.ble.wave.ECGBgViewHorizontal
+            android:layout_width="match_parent"
+            android:background="#00ffffff"
+            android:id="@+id/ecg_backgroud"
+            android:layout_height="match_parent" />
+
+        <cc.bodyplus.sdk.ble.wave.HorizontalEcgWaveSurfaceView
+            android:layout_width="match_parent"
+            android:id="@+id/ecg_surface"
+            android:layout_height="match_parent" />
+        <!--<cc.bodyplus.sdk.ble.wave.ECGWaveView-->
+            <!--android:id="@+id/ecg_wave"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_centerInParent="true" />-->
+
+
+    </RelativeLayout>
+</LinearLayout>

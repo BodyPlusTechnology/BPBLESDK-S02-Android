@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BPSdk</string>
+    <string name="equipment_sn">SN:&#x0020;%1$s</string>
+</resources>

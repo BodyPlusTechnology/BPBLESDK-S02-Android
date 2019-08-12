@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cc.bodyplus.bodyplus_sdk.MainActivity">
+    <TextView
+        android:id="@+id/tv_jni"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#0099cc"
+        android:textSize="15sp"
+        android:text="我是来自jni的返回 + "/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:textSize="11sp"
+        android:text="请确保手机蓝牙已开启！\n点击搜索，从列表中选则要绑定的设备，再点击绑定。"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:textSize="11sp"
+        android:text="名词解释：\n搜索，搜索附近符合要求的设备\n绑定：将选中的设备和APP关联起来，连接断开后不需要手动搜索，程序会自动根据关联设备的SN号去做连接操作\n解绑：解除上述关系\n自动连接：使用设备的SN号来自动连接"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="Search"
+            android:textColor="#0000ff"
+            android:text="搜索" />
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_height="50dp"
+            android:onClick="connectDevice"
+            android:textColor="#0000ff"
+            android:text="连接" />
+
+        <Button
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="disConnect"
+            android:textColor="#0000ff"
+            android:text="断开" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="showInfo"
+            android:textColor="#0000ff"
+            android:text="设备详情" />
+
+        <Button
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:onClick="ecgWave"
+            android:textColor="#0000ff"
+            android:text="心电波形" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:textSize="11sp"
+        android:text="或者，您可以手动输入设备的SN号进行连接（需要确认设备已激活）"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_sn"
+            android:layout_marginStart="20dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textColor="#66000000"
+            android:textSize="12sp"
+            android:hint="请输入要连接的SN号"
+            android:inputType="number"
+            />
+        <Button
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:onClick="connectDeviceBySn"
+            android:textColor="#0000ff"
+            android:text="使用SN号自动连接" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:textSize="11sp"
+        android:text="下面为搜索列表展示区↓"/>
+
+    <ListView
+        android:id="@+id/search_result_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:fadingEdge="none"/>
+
+
+</LinearLayout>
