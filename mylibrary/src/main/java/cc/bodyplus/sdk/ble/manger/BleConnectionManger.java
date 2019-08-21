@@ -577,9 +577,8 @@ public class BleConnectionManger implements ServiceConnection {
      * @param device 设备详情
      */
     private void msgReConnectDevice(DeviceInfo device) {
-        boolean needUpgrade = checkDeviceVersion(device);
-        if (needUpgrade) {
-             // TODO 留个彩蛋
+        if (null!=mBPDfuListener && checkDeviceVersion(device)) {
+            // TODO 留个彩蛋
             msgReConnectDevicesDfu();
         }else {
             for (Object o : connectionMap.entrySet()) {
@@ -648,7 +647,9 @@ public class BleConnectionManger implements ServiceConnection {
                 connectionInterface.reBleStateOn();
             }
         }else if (arg1 == 2){ // 蓝牙关闭
-            mBPDfuListener.onBleOff();
+            if (null != mBPDfuListener) {
+                mBPDfuListener.onBleOff();
+            }
         }
     }
 
@@ -689,15 +690,19 @@ public class BleConnectionManger implements ServiceConnection {
     }
 
     private void startAssetsDfu(int type, String assetsName, DeviceInfo device) {
-        dfuHelperS02 = new DfuHelperS02(application,type,mBPDfuListener);
-        int status = dfuHelperS02.setAssetsZipFile(assetsName, device);
-        mBPDfuListener.onStart(status,device);
+        if (null != mBPDfuListener) {
+            dfuHelperS02 = new DfuHelperS02(application, type, mBPDfuListener);
+            int status = dfuHelperS02.setAssetsZipFile(assetsName, device);
+            mBPDfuListener.onStart(status, device);
+        }
     }
 
     private void startSdCardDfu(int type, String filePath, DeviceInfo device) {
-        dfuHelperS02 = new DfuHelperS02(application,type,mBPDfuListener);
-        int status = dfuHelperS02.setSdCardZipFile(filePath, device);
-        mBPDfuListener.onStart(status,device);
+        if (null != mBPDfuListener) {
+            dfuHelperS02 = new DfuHelperS02(application, type, mBPDfuListener);
+            int status = dfuHelperS02.setSdCardZipFile(filePath, device);
+            mBPDfuListener.onStart(status, device);
+        }
     }
 
     private void msgProcessDfuState(String sn){
