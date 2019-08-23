@@ -2,6 +2,26 @@
 # BPBLESDK-S02-Adnroid
  Android BLE-SDK for BodyPlus's Aerobic Core.
  
+ ## How to use 
+#### Step 1. Add the JitPack repository to your build file
+
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+#### Step 2. Add the dependency
+[![](https://jitpack.io/v/BodyPlusTechnology/BPBLESDK-S02-Adnroid.svg)](https://jitpack.io/#BodyPlusTechnology/BPBLESDK-S02-Adnroid)
+~~~
+	dependencies {
+	        implementation 'com.github.BodyPlusTechnology:BPBLESDK-S02-Adnroid:v1.0'
+	}
+~~~
+
  ### 1、概述
 本文档是集BodyPlus Android版SDK的用户指南，介绍了使用蓝牙4.0技术连接BodyPlus 
 Core的基本使用。关于各类的函数和参数更详细的说明，请参考下文说明；在集成过程有疑问，联系BodyPlus官方。
